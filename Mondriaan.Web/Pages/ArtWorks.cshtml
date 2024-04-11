@@ -1,0 +1,21 @@
+﻿@page
+@using Mondriaan.Core
+@model ArtWorksModel
+
+<div class="text-center">
+    <h2>ArtWorks</h2>
+
+    <div style="display: flex; gap: 15px; flex-basis: 21%; flex-grow: 1; flex-wrap: wrap; align-content: flex-end;">
+        @foreach (var artwork in Model.ArtWorks)
+        {
+            <div style="width:200px; height:300px">
+                <img style="max-width:200px;" src="@artwork.Image" />
+                <br />
+                <span>
+                    @artwork.Creator - @artwork.Title
+                    <br />(@artwork.DateCreated, @artwork.LocationCreated)
+                </span>
+            </div>
+        }
+    </div>
+</div>
