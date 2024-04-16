@@ -41,21 +41,21 @@ public class Function
         services.AddWikiArtParserCore(configuration);
 
         var serviceProvider = services.BuildServiceProvider();
-        var wikiArtParser = serviceProvider.GetRequiredService<IWikiArtParser>();
+        var wikiArtParserMessageHandler = serviceProvider.GetRequiredService<IWikiArtParserMessageHandler>();
 
         foreach (var message in evnt.Records)
         {
-            await ProcessMessageAsync(wikiArtParser, message, context);
+            await ProcessMessageAsync(wikiArtParserMessageHandler, message, context);
         }
     }
 
-    private async Task ProcessMessageAsync(IWikiArtParser wikiArtParser, SQSEvent.SQSMessage message, ILambdaContext context)
+    private async Task ProcessMessageAsync(IWikiArtParserMessageHandler wikiArtParserMessageHandler, SQSEvent.SQSMessage message, ILambdaContext context)
     {
         context.Logger.LogInformation($"Processing message {message.Body}");
 
         var messageBody = JsonSerializer.Deserialize<WikiArtParserMessage>(message.Body);
 
-        await wikiArtParser.Handle(messageBody!);
+        await wikiArtParserMessageHandler.Handle(messageBody!);
     }
 
     internal static IConfiguration GetConfiguration()

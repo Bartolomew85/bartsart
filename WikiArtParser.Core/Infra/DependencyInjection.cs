@@ -15,6 +15,7 @@ namespace WikiArtParser.Core.Infra
             services.AddAWSService<IAmazonDynamoDB>();
             services.AddTransient<IDynamoDBContext>(s => new DynamoDBContext(s.GetService<IAmazonDynamoDB>()));
 
+            services.AddTransient<IWikiArtParserMessageHandler, WikiArtParserMessageHandler>();
             services.AddTransient<IWikiArtParser, WikiArtParser>();
             services.AddTransient<IArtRepository, ArtRepository>();
 

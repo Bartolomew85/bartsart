@@ -4,6 +4,6 @@ namespace WikiArtParser.Core.Interfaces
 {
     public interface IWikiArtParser
     {
-        Task Handle(WikiArtParserMessage message);
+        Task<ArtWork> ParseUrl(string url);
     }
 }

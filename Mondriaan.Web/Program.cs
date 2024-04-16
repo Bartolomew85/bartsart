@@ -16,6 +16,8 @@ namespace Mondriaan.Web
             builder.Services.AddRazorPages();
             builder.Services.AddWikiArtParserCore(builder.Configuration);
 
+            builder.Logging.AddAWSProvider();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

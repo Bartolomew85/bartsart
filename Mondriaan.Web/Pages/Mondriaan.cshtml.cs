@@ -18,6 +18,7 @@ namespace Mondriaan.Web.Pages
         {
             var rectangle = new Rectangle { Width = 300, Height = 400 };
             Mondriaan = rectangle.MakeMondrian();
+            _logger.LogInformation("Mondriaan generated");
         }
     }
 }

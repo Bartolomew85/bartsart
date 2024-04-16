@@ -6,21 +6,11 @@ namespace WikiArtParser.Core
 {
     public class WikiArtParser : IWikiArtParser
     {
-        private readonly IArtRepository _artRepository;
-
-        public WikiArtParser(IArtRepository artRepository)
+        public WikiArtParser()
         {
-            _artRepository = artRepository;
         }
 
-        public async Task Handle(WikiArtParserMessage message)
-        {
-            var artwork = await ParseUrl(message.Url);
-
-            await _artRepository.SaveAsync(artwork);
-        }
-
-        private static async Task<ArtWork> ParseUrl(string url)
+        public async Task<ArtWork> ParseUrl(string url)
         {
             using (var httpClient = new HttpClient())
             {

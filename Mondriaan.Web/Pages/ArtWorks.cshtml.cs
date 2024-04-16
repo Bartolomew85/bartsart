@@ -22,7 +22,7 @@ namespace Mondriaan.Web.Pages
         {
             var artWorks = await _artRepository.GetAllArtWorksAsync();
             ArtWorks = artWorks.OrderBy(x => x.DateCreated).ToList();
-
+            _logger.LogInformation($"Found {artWorks.Count()} artworks in repository.");
         }
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
@@ -22,6 +23,13 @@ namespace Mondriaan.Web.Pages
         public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+
+            var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+
+            if (exceptionHandlerPathFeature != null)
+            {
+                //_logger.LogError(exceptionHandlerPathFeature.Error, $"An error occurred in {exceptionHandlerPathFeature.Path}");
+            }
         }
     }
 
