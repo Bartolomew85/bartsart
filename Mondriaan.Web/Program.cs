@@ -8,15 +8,12 @@ namespace Mondriaan.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Configuration.AddSystemsManager($"/bartsart/web", optional: true);
             builder.Configuration.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
                     optional: true);
 
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddWikiArtParserCore(builder.Configuration);
-
-            builder.Logging.AddAWSProvider();
 
             var app = builder.Build();
 
