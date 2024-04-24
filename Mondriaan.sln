@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mondriaan.Web", "Mondriaan.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiArtParser", "WikiArtParser\WikiArtParser.csproj", "{B54F508A-DFF2-4AAD-9B83-F1FC390AF0D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiArtParser.Core", "WikiArtParser.Core\WikiArtParser.Core.csproj", "{9E8A9558-CBDD-4CF5-84FD-E48F41C4923E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiArtParser.Core", "WikiArtParser.Core\WikiArtParser.Core.csproj", "{9E8A9558-CBDD-4CF5-84FD-E48F41C4923E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
